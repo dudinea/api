@@ -40677,6 +40677,13 @@ func schema_openshift_api_operator_v1_IngressControllerSpec(ref common.Reference
 							Ref:         ref("github.com/openshift/api/operator/v1.HTTPCompressionPolicy"),
 						},
 					},
+					"cookieName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "cookieName defines default name for the HTTP cookie that will be used for session persistence unless another behaviour is specified by route annotations.\n\nIf empty, the cookie name will be auto-generated for each route (unless the route is annotated otherwise).\n\nUse the route annotation haproxy.router.openshift.io/disable_cookies to disable cookies or router.openshift.io/cookie_name to define a specific cookie name for the route.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 				},
 			},
 		},

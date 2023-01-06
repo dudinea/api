@@ -251,6 +251,21 @@ type IngressControllerSpec struct {
 	//
 	// +optional
 	HTTPCompression HTTPCompressionPolicy `json:"httpCompression,omitempty"`
+
+	// cookieName defines default name for the HTTP cookie that will be
+	// used for session persistence unless another behaviour is specified
+	// by route annotations.
+	//
+	// If empty, the cookie name will be auto-generated for each
+	// route (unless the route is annotated otherwise).
+	//
+	// Use the route annotation
+	// haproxy.router.openshift.io/disable_cookies to disable
+	// cookies or router.openshift.io/cookie_name to define a
+	// specific cookie name for the route.
+	//
+	// +optional
+	CookieName string `json:"cookieName,omitempty"`
 }
 
 // httpCompressionPolicy turns on compression for the specified MIME types.

@@ -824,6 +824,7 @@ var map_IngressControllerSpec = map[string]string{
 	"tuningOptions":              "tuningOptions defines parameters for adjusting the performance of ingress controller pods. All fields are optional and will use their respective defaults if not set. See specific tuningOptions fields for more details.\n\nSetting fields within tuningOptions is generally not recommended. The default values are suitable for most configurations.",
 	"unsupportedConfigOverrides": "unsupportedConfigOverrides allows specifying unsupported configuration options.  Its use is unsupported.",
 	"httpCompression":            "httpCompression defines a policy for HTTP traffic compression. By default, there is no HTTP compression.",
+	"cookieName":                 "cookieName defines default name for the HTTP cookie that will be used for session persistence unless another behaviour is specified by route annotations.\n\nIf empty, the cookie name will be auto-generated for each route (unless the route is annotated otherwise).\n\nUse the route annotation haproxy.router.openshift.io/disable_cookies to disable cookies or router.openshift.io/cookie_name to define a specific cookie name for the route.",
 }
 
 func (IngressControllerSpec) SwaggerDoc() map[string]string {

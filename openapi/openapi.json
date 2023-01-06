@@ -23679,6 +23679,10 @@
           "default": {},
           "$ref": "#/definitions/com.github.openshift.api.operator.v1.ClientTLS"
         },
+        "cookieName": {
+          "description": "cookieName defines default name for the HTTP cookie that will be used for session persistence unless another behaviour is specified by route annotations.\n\nIf empty, the cookie name will be auto-generated for each route (unless the route is annotated otherwise).\n\nUse the route annotation haproxy.router.openshift.io/disable_cookies to disable cookies or router.openshift.io/cookie_name to define a specific cookie name for the route.",
+          "type": "string"
+        },
         "defaultCertificate": {
           "description": "defaultCertificate is a reference to a secret containing the default certificate served by the ingress controller. When Routes don't specify their own certificate, defaultCertificate is used.\n\nThe secret must contain the following keys and data:\n\n  tls.crt: certificate file contents\n  tls.key: key file contents\n\nIf unset, a wildcard certificate is automatically generated and used. The certificate is valid for the ingress controller domain (and subdomains) and the generated certificate's CA will be automatically integrated with the cluster's trust store.\n\nIf a wildcard certificate is used and shared by multiple HTTP/2 enabled routes (which implies ALPN) then clients (i.e., notably browsers) are at liberty to reuse open connections. This means a client can reuse a connection to another route and that is likely to fail. This behaviour is generally known as connection coalescing.\n\nThe in-use certificate (whether generated or user-specified) will be automatically integrated with OpenShift's built-in OAuth server.",
           "$ref": "#/definitions/io.k8s.api.core.v1.LocalObjectReference"
